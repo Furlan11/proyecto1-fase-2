@@ -26,23 +26,25 @@ public class Main {
 		for(int i=0; i<lista.size();i++) {
 			if(lista.get(i).equals(null)) {
 				continue;
-			/*Character.compare(ParseString(lista.get(i)).charAt(1), charAt("+"))
-			char valor =  (char) lista.get(i);
-			String valor1 = ParseString(valor);
-			if(Character.compare(valor1.charAt(1), ("+"))==0||Character.compare(valor1.charAt(1), charAt("-"))==0||Character.compare(valor1.charAt(1), charAt("*"))==0||Character.compare(valor1.charAt(1), charAt("/"))==0) {
-				System.out.println((((String) lista.get(i)).charAt(1)));*/
 			}else if(lista.get(i)!=null) {
-				for(int j=0;j<lista.get(i).length();i++) {
-					String.valueOf(lista.get(i).charAt(i)+"");
-				}
-				try{
-					if ((( lista.get(i)).charAt(1)+"").equals("+")||(( lista.get(i)).charAt(1)+"").equals("/")||(( lista.get(i)).charAt(1)+"").equals("-")||(( lista.get(i)).charAt(1)+"").equals("*")) {
-						System.out.println(operaciones.operar(lista.get(i))+"\n");
-					}
+				if(lista.get(i).length()==1) {
+					continue;
+				}else if(lista.get(i).length()>1) {
+					/*for(int j=0;j<lista.get(i).length();i++) {
+						String.valueOf(lista.get(i).charAt(i)+"");
+					}*/
+					System.out.println(lista.get(i));
+					try{
+						if ((( lista.get(i)).charAt(1)+"").equals("+")||(( lista.get(i)).charAt(1)+"").equals("/")||(( lista.get(i)).charAt(1)+"").equals("-")||(( lista.get(i)).charAt(1)+"").equals("*")) {
+							System.out.println(operaciones.operar(lista.get(i))+"\n");
+						}
 					}catch(Exception e){
-						
+						System.out.println("no opera nada1");
 					}
 
+				}else {
+					System.out.println("no opera nada");
+				}
 			
 			}else {
 				System.out.println("no");
