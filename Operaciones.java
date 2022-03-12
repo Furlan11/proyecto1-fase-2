@@ -6,32 +6,35 @@ public class Operaciones {
 		String resultado= "";
 		String sumando1="";
 		String sumando2="";
+		String espacio=" ";
 		int contador=0;
 		int largo=sumandos.length();
 		
 		for(int i=0; i<largo;i++) {
-			String caracter=String.valueOf(sumandos.charAt(i));
-			if(caracter!=" ") {
-				
+			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+			if(caracter!=espacio) {
+				if (isNumeric(caracter)== true){
 					if(contador==0) {
 					 sumando1=sumando1+caracter;
+					 
 					 }	
 					if(contador==1) {
 					 sumando2=sumando2+caracter;
-					 return sumando2;}	
+					 
+					 }	
 					
-				
+				}
 				
 			}
-			if(caracter==" ") {
-				contador=contador++;
+			if(caracter.equals(espacio)) {
+				contador=contador+1;
 				if(contador==2) {
 					double num1=Double.parseDouble(sumando1);
 					double num2=Double.parseDouble(sumando2);
 					resultado=String.valueOf((num1+num2));
 					
 					sumando1= resultado;
-					
+					sumando2="";
 					contador=1;
 					
 				}
@@ -39,7 +42,104 @@ public class Operaciones {
 			
 			
 		}
+		double num1=Double.parseDouble(sumando1);
+		double num2=Double.parseDouble(sumando2);
+		resultado=String.valueOf((num1+num2));
+		return resultado;
+		 
+	}
+	
+	
+	public String resta(String sumandos) {
+		String resultado= "";
+		String sumando1="";
+		String sumando2="";
+		String espacio=" ";
+		int contador=0;
+		int largo=sumandos.length();
 		
+		for(int i=0; i<largo;i++) {
+			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+			if(caracter!=espacio) {
+				if (isNumeric(caracter)== true){
+					if(contador==0) {
+					 sumando1=sumando1+caracter;
+					 
+					 }	
+					if(contador==1) {
+					 sumando2=sumando2+caracter;
+					 
+					 }	
+					
+				}
+				
+			}
+			if(caracter.equals(espacio)) {
+				contador=contador+1;
+				if(contador==2) {
+					double num1=Double.parseDouble(sumando1);
+					double num2=Double.parseDouble(sumando2);
+					resultado=String.valueOf((num1-num2));
+					
+					sumando1= resultado;
+					sumando2="";
+					contador=1;
+					
+				}
+			}
+			
+			
+		}
+		double num1=Double.parseDouble(sumando1);
+		double num2=Double.parseDouble(sumando2);
+		resultado=String.valueOf((num1+num2));
+		return resultado;
+		 
+	}
+	
+	public String Producto(String sumandos) {
+		String resultado= "";
+		String sumando1="";
+		String sumando2="";
+		String espacio=" ";
+		int contador=0;
+		int largo=sumandos.length();
+		
+		for(int i=0; i<largo;i++) {
+			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+			if(caracter!=espacio) {
+				if (isNumeric(caracter)== true){
+					if(contador==0) {
+					 sumando1=sumando1+caracter;
+					 
+					 }	
+					if(contador==1) {
+					 sumando2=sumando2+caracter;
+					 
+					 }	
+					
+				}
+				
+			}
+			if(caracter.equals(espacio)) {
+				contador=contador+1;
+				if(contador==2) {
+					double num1=Double.parseDouble(sumando1);
+					double num2=Double.parseDouble(sumando2);
+					resultado=String.valueOf((num1*num2));
+					
+					sumando1= resultado;
+					sumando2="";
+					contador=1;
+					
+				}
+			}
+			
+			
+		}
+		double num1=Double.parseDouble(sumando1);
+		double num2=Double.parseDouble(sumando2);
+		resultado=String.valueOf((num1*num2));
 		return resultado;
 		 
 	}
