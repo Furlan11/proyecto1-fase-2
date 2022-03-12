@@ -1,167 +1,187 @@
 import java.util.ArrayList;
 
 public class Operaciones {
+    public String suma(String sumandos) { 
+        String resultado= "";
+            String espacio=" ";
+            int largo=sumandos.length();
+            ArrayList<String> numeros = new ArrayList<String>();
+            String numero="";
 
-	public String suma(String sumandos) {
-		String resultado= "";
-		String sumando1="";
-		String sumando2="";
-		String espacio=" ";
-		int contador=0;
-		int largo=sumandos.length();
-		
-		for(int i=0; i<largo;i++) {
-			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
-			if(caracter!=espacio) {
-				if (isNumeric(caracter)== true){
-					if(contador==0) {
-					 sumando1=sumando1+caracter;
-					 
-					 }	
-					if(contador==1) {
-					 sumando2=sumando2+caracter;
-					 
-					 }	
-					
-				}
-				
-			}
-			if(caracter.equals(espacio)) {
-				contador=contador+1;
-				if(contador==2) {
-					double num1=Double.parseDouble(sumando1);
-					double num2=Double.parseDouble(sumando2);
-					resultado=String.valueOf((num1+num2));
-					
-					sumando1= resultado;
-					sumando2="";
-					contador=1;
-					
-				}
-			}
-			
-			
-		}
-		double num1=Double.parseDouble(sumando1);
-		double num2=Double.parseDouble(sumando2);
-		resultado=String.valueOf((num1+num2));
-		return resultado;
-		 
-	}
-	
-	
-	public String resta(String sumandos) {
-		String resultado= "";
-		String sumando1="";
-		String sumando2="";
-		String espacio=" ";
-		int contador=0;
-		int largo=sumandos.length();
-		
-		for(int i=0; i<largo;i++) {
-			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
-			if(caracter!=espacio) {
-				if (isNumeric(caracter)== true){
-					if(contador==0) {
-					 sumando1=sumando1+caracter;
-					 
-					 }	
-					if(contador==1) {
-					 sumando2=sumando2+caracter;
-					 
-					 }	
-					
-				}
-				
-			}
-			if(caracter.equals(espacio)) {
-				contador=contador+1;
-				if(contador==2) {
-					double num1=Double.parseDouble(sumando1);
-					double num2=Double.parseDouble(sumando2);
-					resultado=String.valueOf((num1-num2));
-					
-					sumando1= resultado;
-					sumando2="";
-					contador=1;
-					
-				}
-			}
-			
-			
-		}
-		double num1=Double.parseDouble(sumando1);
-		double num2=Double.parseDouble(sumando2);
-		resultado=String.valueOf((num1+num2));
-		return resultado;
-		 
-	}
-	
-	public String Producto(String sumandos) {
-		String resultado= "";
-		String sumando1="";
-		String sumando2="";
-		String espacio=" ";
-		int contador=0;
-		int largo=sumandos.length();
-		
-		for(int i=0; i<largo;i++) {
-			String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
-			if(caracter!=espacio) {
-				if (isNumeric(caracter)== true){
-					if(contador==0) {
-					 sumando1=sumando1+caracter;
-					 
-					 }	
-					if(contador==1) {
-					 sumando2=sumando2+caracter;
-					 
-					 }	
-					
-				}
-				
-			}
-			if(caracter.equals(espacio)) {
-				contador=contador+1;
-				if(contador==2) {
-					double num1=Double.parseDouble(sumando1);
-					double num2=Double.parseDouble(sumando2);
-					resultado=String.valueOf((num1*num2));
-					
-					sumando1= resultado;
-					sumando2="";
-					contador=1;
-					
-				}
-			}
-			
-			
-		}
-		double num1=Double.parseDouble(sumando1);
-		double num2=Double.parseDouble(sumando2);
-		resultado=String.valueOf((num1*num2));
-		return resultado;
-		 
-	}
-	
-	/**
-	 * verificar si un caracter se puede volver un numero
-	 * @param ope eel string con el cacrater que se queire validar
-	 *  @return bollean con true si e su numeo
-	 */
-	public static boolean isNumeric(String ope) {
-	    try {
-	        double d = Double.parseDouble(ope);
-	    } catch (NumberFormatException nfe) {
-	        return false; //Error no es numerico
-	    }
-	    return true; //Es numerico
-	}
-	
+            for(int i=0; i<largo;i++) {
+                    String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+                    //System.out.println("caracer " +caracter);
+                    if(caracter.equals(espacio)) {
+                        numeros.add(numero);
+                        numero="";
+                    }else{
+                        numero=numero+caracter;
+                    }
+                    //System.out.println("numeros "+numeros);
+            }
+            numeros.add(numero);
+            //System.out.println(numeros);
+            boolean esNumero=true;
+            double respuesta=0;
+            for(int i=0;i<numeros.size();i++){
+                if(isNumeric(numeros.get(i))==false){
+                    System.out.print("error, lo ingresado no es un numero");
+                    esNumero=false;
+                    i=numeros.size();
+                }else{
+                    respuesta=respuesta+Double.parseDouble(numeros.get(i));
+                }
+                resultado=respuesta+"";
+            }
+            return(resultado); 
+
+    }
+
+
+    public String resta(String sumandos) { 
+        String resultado= "";
+            String espacio=" ";
+            int largo=sumandos.length();
+            ArrayList<String> numeros = new ArrayList<String>();
+            String numero="";
+
+            for(int i=0; i<largo;i++) {
+                    String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+                    //System.out.println("caracer " +caracter);
+                    if(caracter.equals(espacio)) {
+                        numeros.add(numero);
+                        numero="";
+                    }else{
+                        numero=numero+caracter;
+                    }
+                    //System.out.println("numeros "+numeros);
+            }
+            numeros.add(numero);
+            //System.out.println(numeros);
+            boolean esNumero=true;
+            double respuesta=0;
+            for(int i=1;i<numeros.size();i++){
+                if(isNumeric(numeros.get(i))==false){
+                    System.out.print("error, lo ingresado no es un numero");
+                    esNumero=false;
+                    i=numeros.size();
+                }else{
+                    respuesta=respuesta+Double.parseDouble(numeros.get(i));
+                }
+            }
+            if(isNumeric(numeros.get(0))==false){
+                System.out.print("error, lo ingresado no es un numero");
+                esNumero=false;
+            }else{
+                respuesta=Double.parseDouble(numeros.get(0))-respuesta;
+            }
+            resultado=respuesta+"";
+            return(resultado); 
+
+    }
+
+    public String Producto(String sumandos) { 
+        String resultado= "";
+            String espacio=" ";
+            int largo=sumandos.length();
+            ArrayList<String> numeros = new ArrayList<String>();
+            String numero="";
+
+            for(int i=0; i<largo;i++) {
+                    String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+                    //System.out.println("caracer " +caracter);
+                    if(caracter.equals(espacio)) {
+                        numeros.add(numero);
+                        numero="";
+                    }else{
+                        numero=numero+caracter;
+                    }
+                    //System.out.println("numeros "+numeros);
+            }
+            numeros.add(numero);
+            //System.out.println(numeros);
+            boolean esNumero=true;
+            double respuesta=1;
+            for(int i=0;i<numeros.size();i++){
+                if(isNumeric(numeros.get(i))==false){
+                    System.out.print("error, lo ingresado no es un numero");
+                    esNumero=false;
+                    i=numeros.size();
+                }else{
+                    respuesta=respuesta*Double.parseDouble(numeros.get(i));
+                }
+                resultado=respuesta+"";
+            }
+            return(resultado); 
+
+    }
+
+    public String Division(String sumandos) { 
+        String resultado= "";
+            String espacio=" ";
+            int largo=sumandos.length();
+            ArrayList<String> numeros = new ArrayList<String>();
+            String numero="";
+
+            for(int i=0; i<largo;i++) {
+                    String caracter=String.valueOf(sumandos.charAt(i));//12 3 4 
+                    //System.out.println("caracer " +caracter);
+                    if(caracter.equals(espacio)) {
+                        numeros.add(numero);
+                        numero="";
+                    }else{
+                        numero=numero+caracter;
+                    }
+                    //System.out.println("numeros "+numeros);
+            }
+            numeros.add(numero);
+            //System.out.println(numeros);
+            boolean esNumero=true;
+            double respuesta=1;
+            for(int i=1;i<numeros.size();i++){
+                if(isNumeric(numeros.get(i))==false){
+                    System.out.print("error, lo ingresado no es un numero");
+                    esNumero=false;
+                    i=numeros.size();
+                }else{
+                    if(Double.parseDouble(numeros.get(i))==0){
+                        System.out.print("error,  no puedes dividir por 0");
+                    esNumero=false;
+                    i=numeros.size();
+                    }else{
+                        respuesta=respuesta*Double.parseDouble(numeros.get(i));
+                    }
+                }
+                resultado=respuesta+"";
+            }
+            if(isNumeric(numeros.get(0))==false){
+                System.out.print("error, lo ingresado no es un numero");
+                esNumero=false;
+            }else{
+                respuesta=Double.parseDouble(numeros.get(0))/respuesta;
+            }
+            resultado=respuesta+"";
+            return(resultado); 
+
+    }
+
+    /**
+     * verificar si un caracter se puede volver un numero
+     * @param ope eel string con el cacrater que se queire validar
+     *  @return bollean con true si e su numeo
+     */
+    public static boolean isNumeric(String ope) {
+        try {
+            double d = Double.parseDouble(ope);
+        } catch (NumberFormatException nfe) {
+            return false; //Error no es numerico
+        }
+        return true; //Es numerico
+    }
     public String operar (String demo){
         boolean verificador=false;
         do{
-            //System.out.println(demo);
+            System.out.println(demo);
             verificador=false;
             int posicionInicial=0;
             for(int i=0;i<demo.length();i++){//analizo el string buscando cual es la ultima operacion
@@ -199,7 +219,6 @@ public class Operaciones {
                 }while(((pregunta.charAt(0)+"").equals(" ")));
                 switch (signo){//opero la lista
                     case "+":
-                        System.out.println("la"+pregunta);
                         resupuesta=suma(pregunta);
                         break;
                     case "-":
@@ -209,7 +228,7 @@ public class Operaciones {
                         resupuesta=Producto(pregunta);
                         break;
                     case "/":
-                        resupuesta=division(pregunta);
+                        resupuesta=Division(pregunta);
                         break;
                 }
                 String nuevo="";//sustituyo la operacion opeerada por la respuesta
