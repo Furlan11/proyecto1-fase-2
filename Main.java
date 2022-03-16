@@ -1,13 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.HashMap;
 
 /**
  * 
  */
 
 /**
- * @author Wilfredo
- *
+ * Clase principal
+ * @author Guillermo Furlan 20713 
+ * @author Wilfredo Gallegos 20399
+ * @author Alejandro Pallais 20093
  */
 public class Main {
 
@@ -19,25 +22,48 @@ public class Main {
 		Scanner teclado = new Scanner(System.in);
 		Archivo archivo = new Archivo();
 		Operaciones operaciones = new Operaciones();
+		Quote quote = new Quote();
+		Predicados predicado = new Predicados();
+		Setq set = new Setq();
+		HashMap <String, Object> dic =new HashMap<>();
+
+		
+		
 		System.out.println("Ingrese la ruta del archivo .txt a leer:");
 		String ruta = teclado.nextLine();
 		String texto = archivo.Leer(ruta);
 		ArrayList<String> lista = archivo.Listar(texto);
+		String PrimerPalabra="";
+		int j = 0;
+		
 		for(int i=0; i<lista.size();i++) {
+			
 			if(lista.get(i).equals(null)) {
 				continue;
 			}else if(lista.get(i)!=null) {
 				if(lista.get(i).length()==1) {
 					continue;
 				}else if(lista.get(i).length()>1) {
+					PrimerPalabra="";
+					j = 0;
+					while(!((lista.get(i).charAt(j)+"").equals(" "))) {
+						PrimerPalabra += lista.get(i).charAt(j);
+						j++;					
+					}
+					System.out.println(PrimerPalabra);
 					/*for(int j=0;j<lista.get(i).length();i++) {
 						String.valueOf(lista.get(i).charAt(i)+"");
 					}*/
-					System.out.println(lista.get(i));
+					//System.out.println(lista.get(i));
 					try{
-						if ((( lista.get(i)).charAt(1)+"").equals("+")||(( lista.get(i)).charAt(1)+"").equals("/")||(( lista.get(i)).charAt(1)+"").equals("-")||(( lista.get(i)).charAt(1)+"").equals("*")) {
+						if ((PrimerPalabra).equals("(+")||(( lista.get(i)).charAt(1)+"").equals("/")||(( lista.get(i)).charAt(1)+"").equals("-")||(( lista.get(i)).charAt(1)+"").equals("*")) {
 							System.out.println(operaciones.operar(lista.get(i))+"\n");
+						}else if(PrimerPalabra.equals("(setq")) {
+							boolean valor = predicado.Listp(lista.get(i));
+							System.out.println(valor);
+							set.defVariable(valor, lista.get(i),dic);
 						}
+					
 					}catch(Exception e){
 						System.out.println("no opera nada1");
 					}

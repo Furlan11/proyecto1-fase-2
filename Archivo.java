@@ -13,7 +13,7 @@ public class Archivo {
             String bfRead;
             while((bfRead = bf.readLine()) != null){ 
                 //haz el ciclo, mientras bfRead tiene datos
-                temp = temp + bfRead; //guardado el texto del archivo
+                temp = temp + bfRead+"\n"; //guardado el texto del archivo
             }
             
             texto = temp;
