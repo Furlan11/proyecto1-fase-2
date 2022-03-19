@@ -19,4 +19,14 @@ public class Predicados {
 			return valor;		
 		}
 
+public boolean Atom(String s) {
+			boolean valor = true;
+			for (int i=0;i<s.length();i++) {
+				if((s.charAt(i)+"").equals("'")) {
+					valor = false;
+				}
+			}
+			return valor;		
+		}
+
 }
