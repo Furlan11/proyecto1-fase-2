@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.HashMap;
 /**
  * Clase principal
  * @author Guillermo Furlan 20713 
@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 
 public class Operaciones {
+	
     public String suma(String sumandos) { 
         String resultado= "";
             String espacio=" ";
@@ -185,7 +186,7 @@ public class Operaciones {
         }
         return true; //Es numerico
     }
-    public String operar (String demo){
+    public String operar (HashMap dic, String demo){
         boolean verificador=false;
         do{
             System.out.println(demo);

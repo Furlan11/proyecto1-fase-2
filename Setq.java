@@ -3,6 +3,9 @@
  */
 import java.util.HashMap;
 import java.util.ArrayList;
+
+import java.util.Map;
+import java.util.Set;
 /**
  * Clase principal
  * @author Guillermo Furlan 20713 
@@ -15,6 +18,7 @@ public class Setq {
 		ArrayList<String> listaLinea = new ArrayList<String>();
 		ArrayList<String> lista = new ArrayList<String>();
 		String palabra = "";
+		
 		for (int i=0;i<s.length();i++) {
 			if(!((s.charAt(i)+"").equals("(")||(s.charAt(i)+"").equals(")")||(s.charAt(i)+"").equals(" ")||(s.charAt(i)+"").equals("'")  )) {
 				palabra += s.charAt(i)+"";
@@ -33,9 +37,16 @@ public class Setq {
 		}else {
 			dic.put(listaLinea.get(1), listaLinea.get(2));
 		}
-		
+
 		System.out.println(dic);
-		System.out.println(dic.get("lista"));
+		System.out.println("esta es una prueba");
+		System.out.println(dic.size());
+		 Object[] keys = dic.keySet().toArray();
+		for (int i=0;i<keys.length;i++) {
+			String clave = (String) keys[i];
+			//System.out.println(dic.get(clave));//obtiene el valor asignado a la clave 
+		    System.out.println("Clave: " + clave );
+		}
 		return dic;
 	}
 	
