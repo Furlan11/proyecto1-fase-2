@@ -55,24 +55,24 @@ public class Condicionales {
 	
 	public HashMap<String, Object> operarciclo(HashMap<String, Object> dic, ArrayList<String> ciclo) {
 		ciclo.get(0);
-		String palabra = "";
+		String Palabra = "";
 		ArrayList<String> linea1 = new ArrayList<>();
 		for (int i=10;i<ciclo.get(0).length();i++) {
 			if(!((ciclo.get(0).charAt(i)+"").equals("(")||(ciclo.get(0).charAt(i)+"").equals(")")||(ciclo.get(0).charAt(i)+"").equals(" ")||(ciclo.get(0).charAt(i)+"").equals("'")  )) {
-				palabra += ciclo.get(0).charAt(i)+"";
+				Palabra += ciclo.get(0).charAt(i)+"";
 				
 			}else if((ciclo.get(0).charAt(i)+"").equals(" ")) {
-				linea1.add(palabra);
-				palabra = "";
+				linea1.add(Palabra);
+				Palabra = "";
 			}
 		}
-		linea1.add(palabra);
+		linea1.add(Palabra);
 		System.out.println(linea1);
 		dic.put(linea1.get(0), Integer.parseInt(linea1.get(2)));
 		System.out.println("obtuvo el valor de "+linea1.get(4)+": "+dic.get(linea1.get(4)));
 		//System.out.println(dic.get(linea1.get(0)));
 		//System.out.println(dic.get(linea1.get(4)));
-		for(int i=Integer.parseInt(String.valueOf(dic.get(linea1.get(0))));i<Integer.parseInt(String.valueOf(dic.get(linea1.get(4))));i++) {
+		for(int a=Integer.parseInt(String.valueOf(dic.get(linea1.get(0))));a<Integer.parseInt(String.valueOf(dic.get(linea1.get(4))));a++) {
 			System.out.println(i);
 		}
 		
