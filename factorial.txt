@@ -1,0 +1,12 @@
+(+ 10 2 3)
+(/ 10 2)
+(* 10 2 5)
+(- 10 2)
+(setq Fn 2)
+(setq lista '(1 1))
+(loop for i from 0 to Fn
+    do(print Fn)
+    do(/ 100 2))
+)
+(print random Fn hola)
+(print 20)
