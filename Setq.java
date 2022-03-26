@@ -11,6 +11,7 @@ import java.util.Set;
  * @author Guillermo Furlan 20713 
  * @author Wilfredo Gallegos 20399
  * @author Alejandro Pallais 20093
+ * clase para definir variables
  */
 public class Setq {
 
@@ -29,6 +30,10 @@ public class Setq {
 			}
 		}
 		listaLinea.add(palabra);
+		 /*
+		 * clase para definir variables
+		 */
+		
 		if(valor==(true)) {		
 			for (int i=2;i<listaLinea.size();i++) {
 				lista.add(listaLinea.get(i));
@@ -41,11 +46,12 @@ public class Setq {
 		System.out.println(dic);
 		System.out.println("esta es una prueba");
 		System.out.println(dic.size());
-		 Object[] keys = dic.keySet().toArray();
+		Object[] keys = dic.keySet().toArray();
 		for (int i=0;i<keys.length;i++) {
 			String clave = (String) keys[i];
 			//System.out.println(dic.get(clave));//obtiene el valor asignado a la clave 
-		    System.out.println("Clave: " + clave );
+		    System.out.println("La Clave: " + clave );
+		    System.out.println("El valor de la clave es: "+ dic.get(clave)+"\n" );
 		}
 		return dic;
 	}

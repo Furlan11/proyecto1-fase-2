@@ -59,6 +59,15 @@ public class Main {
 					try{
 						if ((PrimerPalabra).equals("(+")||(( lista.get(i)).charAt(1)+"").equals("/")||(( lista.get(i)).charAt(1)+"").equals("-")||(( lista.get(i)).charAt(1)+"").equals("*")) {
 							System.out.println(operaciones.operar(dic,lista.get(i))+"\n");
+						}else if(PrimerPalabra.equals("(<")) {
+							boolean valor = predicado.menorque(lista.get(i));
+							if(valor==true) {
+								System.out.println("la expresion "+lista.get(i)+"indica que si es menor que");
+							}else {
+								System.out.println("la expresion "+lista.get(i)+"indica que si NO es menor que");
+							}
+							System.out.println(valor);
+							set.defVariable(valor, lista.get(i),dic);
 						}else if(PrimerPalabra.equals("(setq")) {
 							boolean valor = predicado.Listp(lista.get(i));
 							System.out.println(valor);
@@ -121,6 +130,7 @@ public class Main {
 
 
 }
+
 
 
 

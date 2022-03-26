@@ -5,6 +5,7 @@ import java.util.HashMap;
  * @author Guillermo Furlan 20713 
  * @author Wilfredo Gallegos 20399
  * @author Alejandro Pallais 20093
+ * clase que realiza las operaciones
  */
 
 public class Operaciones {
